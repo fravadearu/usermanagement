@@ -8,9 +8,23 @@
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+            <div class="flex items-center">
+                <x-text-input
+                    id="email"
+                    class="block mt-1 w-full rounded-r-none"
+                    type="text"
+                    name="email"
+                    :value="old('email')"
+                    required
+                    autofocus
+                    autocomplete="username"
+                    placeholder="username"
+                />
+                <span class="bg-gray-100 px-3 py-2 rounded-r-md border border-gray-300 text-gray-500">@gmail.com</span>
+            </div>
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
+
 
         <!-- Password -->
         <div class="mt-4">
