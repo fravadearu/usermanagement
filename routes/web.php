@@ -22,9 +22,9 @@ Route::get('/admin', function(){
     return '<h1>HElO Admin</h1>';
 })->middleware(['auth','verified', 'role:admin']);
 
-Route::get('/penulis', function(){
-    return '<h1>HElO penulis</h1>';
-})->middleware(['auth','verified', 'role:penulis']);
+Route::get('/pengguna', function(){
+    return '<h1>HElO pengguna</h1>';
+})->middleware(['auth','verified', 'role:pengguna']);
 
 
 
