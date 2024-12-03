@@ -18,8 +18,14 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/admin1', function(){
+Route::get('/admin', function(){
     return '<h1>HElO Admin</h1>';
-})->middleware(['auth','verified']);
+})->middleware(['auth','verified', 'role:admin']);
+
+Route::get('/penulis', function(){
+    return '<h1>HElO penulis</h1>';
+})->middleware(['auth','verified', 'role:penulis']);
+
+
 
 require __DIR__.'/auth.php';
