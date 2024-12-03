@@ -22,12 +22,12 @@ class UserSeeder extends Seeder
 
         $admin->assignRole('admin');
 
-        $penulis = User::create([
-            'name' =>'penulis',
-            'email' => 'penulis@gmail.com',
-            'password' => bcrypt('penulis')
+        $user = User::create([
+            'name' =>'user',
+            'email' => 'user@gmail.com',
+            'password' => bcrypt('user')
         ]);
 
-        $penulis->assignRole('penulis');
+        $user->assignRole('user');
     }
 }

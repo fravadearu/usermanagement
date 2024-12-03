@@ -12,7 +12,7 @@ class RolePermissionSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    
+
 public function run(): void
 {
     $permissions = [
@@ -32,7 +32,7 @@ public function run(): void
     // Create roles
     $roles = [
         'admin',
-        'penulis',
+        'user',
     ];
     foreach ($roles as $role) {
         Role::create(['name' => $role]);
@@ -40,10 +40,10 @@ public function run(): void
 
     // Assign permissions to roles
     $roleAdmin = Role::findByName('admin');
-    $roleAdmin->givePermissionTo(['tambah-user', 'lihat-user', 'edit-user', 'hapus-user']); 
+    $roleAdmin->givePermissionTo(['tambah-user', 'lihat-user', 'edit-user', 'hapus-user']);
 
-    $rolePenulis = Role::findByName('penulis');
-    $rolePenulis->givePermissionTo(['tambah-tulisan', 'lihat-tulisan', 'edit-tulisan', 'hapus-tulisan']); 
+    $roleUser = Role::findByName('user');
+    $roleUser->givePermissionTo(['tambah-tulisan', 'lihat-tulisan', 'edit-tulisan', 'hapus-tulisan']);
 }
 
 }
