@@ -17,4 +17,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+Route::get('/admin1', function(){
+    return '<h1>HElO Admin</h1>';
+})->middleware(['auth','verified']);
+
 require __DIR__.'/auth.php';
