@@ -18,12 +18,20 @@ class LoginRequest extends FormRequest
     {
         return true;
     }
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'email' => str_contains($this->email, '@')
+                ? $this->email
+                : $this->email . '@gmail.com',
+        ]);
+    }
 
     /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
+      * Get the validation rules that apply to the request.
+      *
+      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+      */
     public function rules(): array
     {
         return [
@@ -31,7 +39,6 @@ class LoginRequest extends FormRequest
             'password' => ['required', 'string'],
         ];
     }
-
     /**
      * Attempt to authenticate the request's credentials.
      *
