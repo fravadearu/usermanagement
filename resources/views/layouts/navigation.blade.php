@@ -14,7 +14,7 @@
                         {{ __('Profile') }}</a></li>
                 @role('admin')
                     <li><a href="{{ route('register') }}">{{ __('Register') }}</a></li>
-                    <li></li>
+                    <li><a href="{{ route('users.index') }}">{{ __('Users') }}</a></li>
                 @endrole
 
                 <li>
